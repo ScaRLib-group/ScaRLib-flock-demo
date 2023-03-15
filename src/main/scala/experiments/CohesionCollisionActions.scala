@@ -2,7 +2,7 @@ package experiments
 
 import it.unibo.scarlib.core.model.Action
 
-class CohesionCollisionActions {
+object CohesionCollisionActions {
   final case object North extends Action
   final case object South extends Action
   final case object East extends Action
