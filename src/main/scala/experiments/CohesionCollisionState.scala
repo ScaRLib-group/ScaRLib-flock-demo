@@ -2,7 +2,7 @@ package experiments
 
 import it.unibo.scarlib.core.model.State
 
-class CohesionCollisionState(positions: List[(Double, Double)], agentId: Int) extends State {
+case class CohesionCollisionState(positions: List[(Double, Double)], agentId: Int) extends State {
   override def elements(): Int = 5 * 2
 
   override def toSeq(): Seq[Double] = {
