@@ -29,7 +29,10 @@ sourceSets {
 }
 
 dependencies {
-    implementation("org.scala-lang:scala3-library_3:3.2.2")
-    implementation("io.github.davidedomini:scarlib-core:1.5.0")
-    implementation("io.github.davidedomini:dsl-core:1.5.0")
+    //implementation("org.scala-lang:scala3-library_3:3.2.2")
+    implementation("org.scala-lang:scala-library:2.13.10")
+    implementation("io.github.davidedomini:scarlib-core:1.6.0")
+    implementation("io.github.davidedomini:alchemist-scafi:1.6.0")
+    //implementation("io.github.davidedomini:dsl-core:1.5.0")
+
 }
