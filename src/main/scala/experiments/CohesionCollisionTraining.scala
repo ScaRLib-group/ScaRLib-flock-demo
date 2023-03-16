@@ -19,7 +19,7 @@ object CohesionCollisionTraining extends App {
   private val env = new AlchemistEnvironment(
     rewardFunction,
     actionSpace,
-    "./src/main/scala/experiment/CohesionCollisionSimulation.yaml",
+    "./src/main/scala/experiments/CohesionCollisionSimulation.yaml",
     randomSeed = Some(42)
   )
 
