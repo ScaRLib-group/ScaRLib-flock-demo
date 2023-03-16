@@ -3,9 +3,6 @@ plugins {
     scala
 }
 
-group = "io.github.davidedomini"
-version = "1.0.0"
-
 repositories {
     mavenCentral()
 }
@@ -13,7 +10,6 @@ repositories {
 scala {
     zincVersion.set("1.6.1")
 }
-
 
 sourceSets {
     main {
@@ -41,5 +37,10 @@ dependencies {
     implementation("dev.scalapy:scalapy-core_2.13:0.5.3")
     implementation("org.slf4j:slf4j-api:2.0.6")
     implementation("ch.qos.logback:logback-classic:1.4.5")
+}
 
+tasks.register<JavaExec>("runCohesionAndCollisionTraining") {
+    group = "ScaRLib Training"
+    mainClass.set("experiment.CohesionAndCollisionTraining")
+    classpath = sourceSets["main"].runtimeClasspath
 }
