@@ -5,6 +5,8 @@ import me.shadaj.scalapy.py
 
 class NNFactory extends DQNAbstractFactory[py.Dynamic] {
 
-  override def createNN(): py.Dynamic = SimpleSequentialDQN(0,0,0)
+  override def createNN(): py.Dynamic = {
+    SimpleSequentialDQN(10, 64, CohesionCollisionActions.toSeq().size)
+  }
 
 }
