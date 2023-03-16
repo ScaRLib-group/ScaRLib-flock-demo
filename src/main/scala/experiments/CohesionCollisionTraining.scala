@@ -6,8 +6,9 @@ import it.unibo.scarlib.core.deepRL.{CTDESystem, IndependentAgent}
 import it.unibo.scarlib.core.model.{Action, LearningConfiguration, ReplayBuffer, State}
 import org.slf4j.LoggerFactory
 import ch.qos.logback.classic.Level
+import scala.concurrent.ExecutionContext.Implicits.global
 
-object CohesionCollisionTraining {
+object CohesionCollisionTraining extends App {
 
   private val rewardFunction = new CohesionCollisionRF()
   LoggerFactory.getLogger(classOf[SimulationModel]).asInstanceOf[ch.qos.logback.classic.Logger].setLevel(Level.OFF)
@@ -31,8 +32,6 @@ object CohesionCollisionTraining {
     agents = agents :+ new IndependentAgent(n, env, actionSpace, dataset)
 
   private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory)
-
-  import scala.concurrent.ExecutionContext.Implicits.global
 
   new CTDESystem(agents, env, dataset, actionSpace, learningConfiguration).learn(1000, 100)
 
