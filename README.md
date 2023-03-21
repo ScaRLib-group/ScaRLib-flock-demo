@@ -28,7 +28,7 @@ In order to launch the learning only one change is needed, you must specify the 
 ```scala
 private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "path-to-snapshot-folder")
 ```
-After making this change is it possible to run the learning using a pre-configured Gradle task launching the following command:
+After making this change it is possible to run the learning using a pre-configured Gradle task launching the following command:
 ```powershell
 ./gradlew runCohesionAndCollisionTraining
 ```
