@@ -31,7 +31,7 @@ object CohesionCollisionTraining extends App {
   for (n <- 0 to 49)
     agents = agents :+ new IndependentAgent(n, env, actionSpace, dataset)
 
-  private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory)
+  private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "path-to-snapshot-folder")
 
   new CTDESystem(agents, env, dataset, actionSpace, learningConfiguration).learn(1000, 100)
 
