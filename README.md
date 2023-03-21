@@ -12,9 +12,23 @@ In this way, when the negative factor is taken into account: the system will ten
 
 ## Project Structure
 
+All the files needed to describe the experiment are in the `src/main/scala/experiment` folder. As described in ScaRLib, to run a learning the user must define: 
+- The action space
+- The reward function
+- The state
+- The neural network used to approximate the Q-function
+- The scafi logic
+- The alchemist specification
+
+Finally all these elements are merged to create the learning system in the file `CohesionCollisionTraining.scala`.
+
 ## How to use it 
 
-In order to launch the learning only one elements is needed, you must specify the path on where the snapshot of the policy will be saved. You can do this editing the following line of code in the file `CohesionCollisionTraining.scala`:
+In order to launch the learning only one change is needed, you must specify the path on where the snapshots of the policy will be saved. You can do this editing the following line of code in the file `CohesionCollisionTraining.scala`:
 ```scala
 private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "path-to-snapshot-folder")
+```
+After making this change is it possible to run the learning using a pre-configured Gradle task launching the following command:
+```powershell
+./gradlew runCohesionAndCollisionTraining
 ```
