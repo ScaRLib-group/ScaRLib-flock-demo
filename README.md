@@ -32,3 +32,11 @@ After making this change it is possible to run the learning using a pre-configur
 ```powershell
 ./gradlew runCohesionAndCollisionTraining
 ```
+Due to the usage of ScalaPy there might be the need for some extra-configuration, all the details can be found [here](https://scalapy.dev/docs/) (sections: `Execution` and `Virtualenv`). Tip: if if you don't want to configure environment variables on your PC you can pass the required arguments directly to the gradle task adding the following code (in `build.gradle.kts` file):
+```kotlin
+jvmArgs(
+  "-Dscalapy.python.library=${pyhtonVersion}",
+  //Other required parameters...
+)
+```
+
