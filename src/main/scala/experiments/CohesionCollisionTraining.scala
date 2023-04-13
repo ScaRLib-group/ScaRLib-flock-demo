@@ -28,7 +28,7 @@ object CohesionCollisionTraining extends App {
   private val dataset: ReplayBuffer[State, Action] = ReplayBuffer[State, Action](datasetSize)
 
   private var agents: Seq[IndependentAgent] = Seq.empty
-  for (n <- 0 to 49)
+  for (n <- 0 to env.currentNodeCount)
     agents = agents :+ new IndependentAgent(n, env, actionSpace, dataset)
 
   private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "path-to-snapshot-folder")

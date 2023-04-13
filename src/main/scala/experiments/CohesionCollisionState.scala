@@ -1,9 +1,9 @@
 package experiments
 
 import it.unibo.scarlib.core.model.State
-
+import StateInfo._
 case class CohesionCollisionState(positions: List[(Double, Double)], agentId: Int) extends State {
-  override def elements(): Int = 5 * 2
+  override def elements(): Int = neighborhood * encoding
 
   override def toSeq(): Seq[Double] = {
     val fill = List.fill(elements())(0.0)
