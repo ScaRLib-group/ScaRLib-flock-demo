@@ -4,6 +4,7 @@ import re
 import seaborn as sns
 import pandas as pd
 import os
+import sys
 sns.set()
 sns.set_context("paper")
 def distance(val, ref):
@@ -181,10 +182,10 @@ minTime = 1
 maxTime = 100
 means = {}
 stdevs = {}
-if __name__ == '__main__':
+def runWith(count):
     # CONFIGURE SCRIPT
     # Where to find Alchemist data files
-    directory = 'alchemist-scafi/data-csv'
+    directory = 'data/data-' + str(count)
     # Where to save charts
     output_directory = 'charts'
     # How to name the summary of the processed data
@@ -345,7 +346,6 @@ if __name__ == '__main__':
         return (fig, ax)
 
     def produce_chart(means, error, labelA, labelB, palette=palette):
-        print(means)
         sns.set_palette(palette)
         plot_label = "distances"
         data = pd.DataFrame({'time': means['time'], plot_label: means[labelA], "y-error": error[labelA]})
@@ -383,7 +383,7 @@ if __name__ == '__main__':
     ax = produce_chart(current_experiment_means, current_experiment_errors, "distances[min]", "distances[mean]")
     ax.axhline(0.2, linestyle="--", color=palette[2])
     #ax = produce_chart(current_experiment_means, current_experiment_errors, "distances[mean]")
-    finalise_fig(ax, "data-200")
+    finalise_fig(ax, "data-"+str(count))
     #ax = produce_chart(current_experiment_means, current_experiment_errors, "inDanger", palette[1:])
     #finalise_fig(ax, "in_danger")
     #maxTime = 120
@@ -393,3 +393,6 @@ if __name__ == '__main__':
     #ax = produce_chart(current_experiment_means, current_experiment_errors, "avgDistanceTeam[mean]", palette[2:])
     #finalise_fig(ax, "average_intra_team_distance")
 # Custom charting
+runWith(50)
+runWith(100)
+runWith(200)
