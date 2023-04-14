@@ -1,11 +1,13 @@
-package experiments
+package experiments.training
 
+import ch.qos.logback.classic.Level
+import experiments.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory}
 import it.unibo.alchemist.AlchemistEnvironment
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
 import it.unibo.scarlib.core.deepRL.{CTDESystem, IndependentAgent}
 import it.unibo.scarlib.core.model.{Action, LearningConfiguration, ReplayBuffer, State}
 import org.slf4j.LoggerFactory
-import ch.qos.logback.classic.Level
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 object CohesionCollisionTraining extends App {
@@ -19,8 +21,8 @@ object CohesionCollisionTraining extends App {
   private val env = new AlchemistEnvironment(
     rewardFunction,
     actionSpace,
-    "./src/main/scala/experiments/CohesionCollisionSimulation.yaml",
-    randomSeed = Some(42)
+    "./src/main/scala/experiments/training/CohesionCollisionSimulation.yaml",
+    randomSeed = Some(42),
   )
 
   private val datasetSize = 10000
@@ -28,11 +30,11 @@ object CohesionCollisionTraining extends App {
   private val dataset: ReplayBuffer[State, Action] = ReplayBuffer[State, Action](datasetSize)
 
   private var agents: Seq[IndependentAgent] = Seq.empty
-  for (n <- 0 to env.currentNodeCount)
+  for (n <- 0 until env.currentNodeCount)
     agents = agents :+ new IndependentAgent(n, env, actionSpace, dataset)
 
-  private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "path-to-snapshot-folder")
+  private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "networks/network")
 
-  new CTDESystem(agents, env, dataset, actionSpace, learningConfiguration).learn(1000, 100)
-
+  new CTDESystem(agents, env, dataset, actionSpace, learningConfiguration).learn(ExperimentInfo.episodes, ExperimentInfo.episodeLength)
+  System.exit(0)
 }
