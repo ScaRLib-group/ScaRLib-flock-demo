@@ -42,7 +42,6 @@ dependencies {
 tasks.register<JavaExec>("runCohesionAndCollisionTraining") {
     group = "ScaRLib Training"
     mainClass.set("experiments.training.CohesionCollisionTraining")
-    args = listOf("10")
     classpath = sourceSets["main"].runtimeClasspath
 }
 
