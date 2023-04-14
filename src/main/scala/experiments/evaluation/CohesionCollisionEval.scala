@@ -2,7 +2,7 @@ package experiments.evaluation
 
 import ch.qos.logback.classic.Level
 import experiments.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory, StateInfo}
-import it.unibo.alchemist.AlchemistEnvironment
+import it.unibo.alchemist.{AlchemistEnvironment, NoOutput, ShowEach}
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
 import it.unibo.scarlib.core.deepRL.{CTDESystem, IndependentAgent}
 import it.unibo.scarlib.core.model._
@@ -12,6 +12,12 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 
 object CohesionCollisionEval extends App {
+  val argsMap = args.zipWithIndex.map { case (arg, i) => (i, arg) }.toMap
+  val show = argsMap.get(0) match {
+    case None => NoOutput
+    case Some(steps) => new ShowEach(steps.toInt)
+  }
+  println(show)
   private val rewardFunction = new CohesionCollisionRF()
   LoggerFactory.getLogger(classOf[SimulationModel]).asInstanceOf[ch.qos.logback.classic.Logger].setLevel(Level.OFF)
   LoggerFactory.getLogger(classOf[JVMConstructor]).asInstanceOf[ch.qos.logback.classic.Logger].setLevel(Level.OFF)
@@ -22,7 +28,8 @@ object CohesionCollisionEval extends App {
         envDefinition = s"./src/main/scala/experiments/evaluation/CohesionAndCollisionEval-${count}.yaml",
         rewardFunction = rewardFunction,
         actionSpace = CohesionCollisionActions.toSeq(),
-        randomSeed = Some(seed)
+        randomSeed = Some(seed),
+        outputStrategy = show
       )
       val datasetSize = 10000
       println(s"------ Simulation ${seed} with ${env.currentNodeCount} agents --------")

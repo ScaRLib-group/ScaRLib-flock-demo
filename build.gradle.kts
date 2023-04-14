@@ -42,11 +42,29 @@ dependencies {
 tasks.register<JavaExec>("runCohesionAndCollisionTraining") {
     group = "ScaRLib Training"
     mainClass.set("experiments.training.CohesionCollisionTraining")
+    jvmArgs("-Dsun.java2d.opengl=false")
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
+tasks.register<JavaExec>("runCohesionAndCollisionTrainingGui") {
+    group = "ScaRLib Training"
+    mainClass.set("experiments.training.CohesionCollisionTraining")
+    jvmArgs("-Dsun.java2d.opengl=false")
+    args = listOf("20")
     classpath = sourceSets["main"].runtimeClasspath
 }
 
 tasks.register<JavaExec>("runCohesionAndCollisionEval") {
     group = "ScaRLib Training"
     mainClass.set("experiments.evaluation.CohesionCollisionEval")
+    jvmArgs("-Dsun.java2d.opengl=false")
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
+tasks.register<JavaExec>("runCohesionAndCollisionEvalGui") {
+    group = "ScaRLib Training"
+    mainClass.set("experiments.evaluation.CohesionCollisionEval")
+    jvmArgs("-Dsun.java2d.opengl=false")
+    args = listOf("20")
     classpath = sourceSets["main"].runtimeClasspath
 }
