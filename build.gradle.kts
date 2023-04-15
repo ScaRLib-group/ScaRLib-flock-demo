@@ -68,3 +68,12 @@ tasks.register<JavaExec>("runCohesionAndCollisionEvalGui") {
     args = listOf("20")
     classpath = sourceSets["main"].runtimeClasspath
 }
+
+
+tasks.register<JavaExec>("runSmokeTest") {
+    group = "ScaRLib Training"
+    mainClass.set("experiments.evaluation.SmokeTest")
+    jvmArgs("-Dsun.java2d.opengl=false")
+    args = listOf("20")
+    classpath = sourceSets["main"].runtimeClasspath
+}
