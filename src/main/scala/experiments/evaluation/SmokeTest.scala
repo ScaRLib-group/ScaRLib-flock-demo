@@ -17,7 +17,7 @@ object SmokeTest extends App {
   LoggerFactory.getLogger(classOf[JVMConstructor]).asInstanceOf[ch.qos.logback.classic.Logger].setLevel(Level.OFF)
 
   val env = new AlchemistEnvironment(
-    envDefinition = s"./src/main/scala/experiments/evaluation/smoke",
+    envDefinition = s"./src/main/scala/experiments/evaluation/Smoke.yaml",
     rewardFunction = rewardFunction,
     actionSpace = CohesionCollisionActions.toSeq(),
     randomSeed = Some(42),
