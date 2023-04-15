@@ -88,7 +88,7 @@ object DeepQLearner {
                                                 actionSpace: Seq[A]
                                               ): S => A = {
     val model = SimpleSequentialDQN(inputSize, hiddenSize, actionSpace.size)
-    model.load_state_dict(TorchSupport.deepLearningLib().load(path), map_location=AutodiffDevice())
+    model.load_state_dict(TorchSupport.deepLearningLib().load(path, map_location=AutodiffDevice()))
     policyFromNetwork(model, actionSpace)
   }
 
