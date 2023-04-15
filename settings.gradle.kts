@@ -1,2 +1,2 @@
-rootProject.name = "ScaRLib-experiments-startup"
+rootProject.name = "ScaRLib-flock-demo"
 
