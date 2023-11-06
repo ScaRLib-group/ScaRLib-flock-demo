@@ -7,7 +7,7 @@ import it.unibo.alchemist.model.interfaces.{Environment, Node, Position, TimeDis
 class CohesionCollisionCollectiveAction[T, P <: Position[P]](
     environment: Environment[T, P],
     distribution: TimeDistribution[T])
-  extends CollectiveAction(environment, distribution) {
+  extends CollectiveAction[T, P](environment, distribution) {
 
   override protected def nodeAction(node: Node[T]): Unit = {
     val destination = node.getConcentration(new SimpleMolecule("destination"))
