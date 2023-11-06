@@ -1,7 +1,6 @@
 package experiments
 
 object StateInfo {
-  val neighborhood = 5
-  val encoding = 2
-
+  val neighborhood: Int = 5
+  val encoding: Int = 2
 }
