@@ -1,4 +1,4 @@
-package experiments
+package experiments.followtheleader
 
 object ExperimentInfo {
   val episodes = 500

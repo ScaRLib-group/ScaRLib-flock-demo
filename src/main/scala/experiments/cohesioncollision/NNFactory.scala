@@ -1,8 +1,8 @@
-package experiments
+package experiments.cohesioncollision
 
+import experiments.cohesioncollision.StateInfo._
 import it.unibo.scarlib.core.neuralnetwork.{DQNAbstractFactory, SimpleSequentialDQN}
 import me.shadaj.scalapy.py
-import StateInfo._
 
 class NNFactory extends DQNAbstractFactory[py.Dynamic] {
 

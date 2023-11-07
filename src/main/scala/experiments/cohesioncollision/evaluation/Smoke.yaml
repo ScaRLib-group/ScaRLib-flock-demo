@@ -22,7 +22,7 @@ environment:
     - time-distribution:
         type: DiracComb
         parameters: [ 0.1,  1.0 ]
-      type: experiments.CohesionCollisionCollectiveAction
+      type: experiments.CollectiveAction
       parameters: [ ]
 _reactions:
   - program: &program
@@ -32,7 +32,7 @@ _reactions:
         type: Event
         actions:
           - type: RunScafiProgram
-            parameters: [ experiments.CohesionCollisionScafiAgent, 1.1 ]
+            parameters: [ experiments.cohesioncollision.CohesionCollisionScafiAgent, 1.1 ]
       - program: send
 
 deployments:
@@ -47,7 +47,7 @@ export:
   - type: CSVExporter
     parameters:
       fileNameRoot: "simulation"
-      exportPath: "data/data-50"
+      exportPath: "data/smoke"
       interval: 1
     data:
       - time

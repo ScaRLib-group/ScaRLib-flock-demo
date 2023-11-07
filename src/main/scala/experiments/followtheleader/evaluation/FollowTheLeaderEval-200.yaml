@@ -6,6 +6,7 @@ variables:
     max: 63
     step: 1
     default: 0
+  leaderId: &leaderId { formula: 12 }
 
 network-model:
   type: ClosestN
@@ -22,7 +23,7 @@ environment:
     - time-distribution:
         type: DiracComb
         parameters: [ 0.1,  1.0 ]
-      type: experiments.CollectiveAction
+      type: experiments.followtheleader.FollowTheLeaderCollectiveAction
       parameters: [ ]
 _reactions:
   - program: &program
@@ -32,25 +33,29 @@ _reactions:
         type: Event
         actions:
           - type: RunScafiProgram
-            parameters: [ experiments.CohesionCollisionScafiAgent, 1.1 ]
+            parameters: [ experiments.followtheleader.FollowTheMovingLeaderScafiAgent, 1.1 ]
       - program: send
 
 deployments:
   type: Grid
-  #parameters: [ -1, -1, 1, 1, 1, 1, 0, 0 ]
-  parameters: [-5, -5, 5, 5, 2, 1, 1, 1] # more agents... (50)
+  parameters: [-10, -10, 10, 10, 2, 1, 1, 1]
   programs:
     - *program
-    #- *move
+  contents:
+    molecule: leaderId
+    concentration: *leaderId
 
 export:
   - type: CSVExporter
     parameters:
       fileNameRoot: "simulation"
-      exportPath: "data/smoke"
+      exportPath: "data/data-50"
       interval: 1
     data:
       - time
       - molecule: distances
         value-filter: onlyfinite
         aggregators: [ min, max, mean ]
+      - molecule: distanceToLeader
+        value-filter: onlyfinite
+        aggregators: [min, max, mean]

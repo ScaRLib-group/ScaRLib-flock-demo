@@ -1,8 +1,10 @@
-package experiments
+package experiments.followtheleader
 
 import it.unibo.scarlib.core.model.Action
+import scala.util.Random
 
-object CohesionCollisionActions {
+object FollowTheLeaderActions {
+
   final case object North extends Action
   final case object South extends Action
   final case object East extends Action
@@ -11,6 +13,12 @@ object CohesionCollisionActions {
   final case object NorthWest extends Action
   final case object SouthWest extends Action
   final case object SouthEast extends Action
+  final case object StandStill extends Action
 
-  def toSeq(): Seq[Action] = Seq(North, South, East, West, NorthEast, NorthWest, SouthEast, SouthWest)
+  def all(): Seq[Action] =
+    Seq(North, South, East, West, NorthEast, NorthWest, SouthEast, SouthWest, StandStill)
+
+  def sample(): Action =
+    Random.shuffle(all().take(all().size - 1)).head //Without StandStill
+
 }

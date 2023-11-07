@@ -1,4 +1,4 @@
-package experiments
+package experiments.cohesioncollision
 
 import it.unibo.alchemist.CollectiveAction
 import it.unibo.alchemist.model.implementations.molecules.SimpleMolecule

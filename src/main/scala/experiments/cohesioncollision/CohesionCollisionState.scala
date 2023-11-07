@@ -1,7 +1,7 @@
-package experiments
+package experiments.cohesioncollision
 
+import experiments.cohesioncollision.StateInfo._
 import it.unibo.scarlib.core.model.State
-import StateInfo._
 import it.unibo.scarlib.core.neuralnetwork.NeuralNetworkEncoding
 
 case class CohesionCollisionState(positions: List[(Double, Double)], agentId: Int) extends State {
