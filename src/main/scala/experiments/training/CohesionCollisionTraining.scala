@@ -4,11 +4,12 @@ import ch.qos.logback.classic.Level
 import experiments.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory}
 import it.unibo.alchemist.{AlchemistEnvironment, NoOutput, ShowEach}
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
-import it.unibo.scarlib.core.deepRL.{CTDESystem, IndependentAgent}
+import it.unibo.scarlib.core.system.{CTDESystem, CTDEAgent}
 import it.unibo.scarlib.core.model.{Action, LearningConfiguration, ReplayBuffer, State}
 import org.slf4j.LoggerFactory
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import experiments.CohesionCollisionState.encoding
 
 object CohesionCollisionTraining extends App {
   val argsMap = args.zipWithIndex.map { case (arg, i) => (i, arg) }.toMap
@@ -34,9 +35,9 @@ object CohesionCollisionTraining extends App {
 
   private val dataset: ReplayBuffer[State, Action] = ReplayBuffer[State, Action](datasetSize)
 
-  private var agents: Seq[IndependentAgent] = Seq.empty
+  private var agents: Seq[CTDEAgent] = Seq.empty
   for (n <- 0 until env.currentNodeCount)
-    agents = agents :+ new IndependentAgent(n, env, actionSpace, dataset)
+    agents = agents :+ new CTDEAgent(n, env, actionSpace, dataset)
 
   private val learningConfiguration = new LearningConfiguration(dqnFactory = new NNFactory, snapshotPath = "networks/network")
 

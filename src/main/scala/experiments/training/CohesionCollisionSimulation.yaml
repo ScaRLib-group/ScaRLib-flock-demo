@@ -22,7 +22,7 @@ environment:
     - time-distribution:
         type: DiracComb
         parameters: [ 0.1,  1.0 ]
-      type: experiments.CollectiveAction
+      type: experiments.CohesionCollisionCollectiveAction
       parameters: [ ]
 _reactions:
   - program: &program

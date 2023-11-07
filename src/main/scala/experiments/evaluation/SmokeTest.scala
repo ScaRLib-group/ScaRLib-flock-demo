@@ -1,5 +1,5 @@
 package experiments.evaluation
-
+/*
 import ch.qos.logback.classic.Level
 import experiments._
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
@@ -38,3 +38,4 @@ object SmokeTest extends App {
 
   System.exit(0)
 }
+*/

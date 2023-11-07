@@ -8,9 +8,10 @@ import it.unibo.scafi.space.{Point2D, Point3D}
 import it.unibo.scarlib.core.model.State
 import it.unibo.alchemist.model.scafi.ScafiIncarnationForAlchemist._
 
-class CohesionCollisionScafiAgent extends ScafiProgram with FieldUtils{
+class CohesionCollisionScafiAgent extends ScafiProgram with FieldUtils {
+
   override protected def computeState(): State = {
-    mkActions()
+    makeActions()
     val distances = excludingSelf
       .reifyField(nbrVector())
       .toList
@@ -28,13 +29,12 @@ class CohesionCollisionScafiAgent extends ScafiProgram with FieldUtils{
     CohesionCollisionState(distances, mid())
   }
 
-  private def mkActions(): Unit = {
+  override protected def makeActions(): Unit = {
     val dt = 0.05
     val agent = node.asInstanceOf[SimpleNodeManager[Any]].node
     val action = agent.getConcentration(new SimpleMolecule("action"))
     if (action != null) {
       val target = action match {
-        //case NoAction => // do nothing
         case North =>
           alchemistEnvironment.getPosition(agent).plus(Array(0.0, dt))
 
@@ -63,7 +63,4 @@ class CohesionCollisionScafiAgent extends ScafiProgram with FieldUtils{
     }
   }
 
-  override protected def makeActions(): State = {
-    CohesionCollisionState(List.empty, 0) //workaround
-  }
 }
