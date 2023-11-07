@@ -39,36 +39,39 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.5")
 }
 
-tasks.register<JavaExec>("runCohesionAndCollisionTraining") {
-    group = "ScaRLib Training"
-    mainClass.set("experiments.cohesioncollision.training.CohesionCollisionTraining")
-    jvmArgs("-Dsun.java2d.opengl=false")
-    classpath = sourceSets["main"].runtimeClasspath
-}
+val experiments = listOf("CohesionCollision", "FollowTheLeader")
 
-tasks.register<JavaExec>("runCohesionAndCollisionTrainingGui") {
-    group = "ScaRLib Training"
-    mainClass.set("experiments.cohesioncollision.training.CohesionCollisionTraining")
-    jvmArgs("-Dsun.java2d.opengl=false")
-    args = listOf("20")
-    classpath = sourceSets["main"].runtimeClasspath
-}
+for(experiment in experiments){
+    tasks.register<JavaExec>("run${experiment}Training") {
+        group = "ScaRLib $experiment Training"
+        mainClass.set("experiments.${experiment.toLowerCase()}.training.${experiment}Training")
+        jvmArgs("-Dsun.java2d.opengl=false")
+        classpath = sourceSets["main"].runtimeClasspath
+    }
 
-tasks.register<JavaExec>("runCohesionAndCollisionEval") {
-    group = "ScaRLib Training"
-    mainClass.set("experiments.cohesioncollision.evaluation.CohesionCollisionEval")
-    jvmArgs("-Dsun.java2d.opengl=false")
-    classpath = sourceSets["main"].runtimeClasspath
-}
+    tasks.register<JavaExec>("run${experiment}TrainingGui") {
+        group = "ScaRLib $experiment Training"
+        mainClass.set("experiments.${experiment.toLowerCase()}.training.${experiment}Training")
+        jvmArgs("-Dsun.java2d.opengl=false")
+        args = listOf("20")
+        classpath = sourceSets["main"].runtimeClasspath
+    }
 
-tasks.register<JavaExec>("runCohesionAndCollisionEvalGui") {
-    group = "ScaRLib Training"
-    mainClass.set("experiments.cohesioncollision.evaluation.CohesionCollisionEval")
-    jvmArgs("-Dsun.java2d.opengl=false")
-    args = listOf("20")
-    classpath = sourceSets["main"].runtimeClasspath
-}
+    tasks.register<JavaExec>("run${experiment}Eval") {
+        group = "ScaRLib $experiment Training"
+        mainClass.set("experiments.${experiment.toLowerCase()}.evaluation.${experiment}Eval")
+        jvmArgs("-Dsun.java2d.opengl=false")
+        classpath = sourceSets["main"].runtimeClasspath
+    }
 
+    tasks.register<JavaExec>("run${experiment}EvalGui") {
+        group = "ScaRLib $experiment Training"
+        mainClass.set("experiments.${experiment.toLowerCase()}.evaluation.${experiment}Eval")
+        jvmArgs("-Dsun.java2d.opengl=false")
+        args = listOf("20")
+        classpath = sourceSets["main"].runtimeClasspath
+    }
+}
 
 tasks.register<JavaExec>("runSmokeTest") {
     group = "ScaRLib Training"
