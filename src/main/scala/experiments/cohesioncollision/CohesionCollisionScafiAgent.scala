@@ -1,12 +1,12 @@
-package experiments
+package experiments.cohesioncollision
 
+import experiments.cohesioncollision.CohesionCollisionActions._
 import it.unibo.alchemist.model.implementations.molecules.SimpleMolecule
 import it.unibo.alchemist.model.implementations.nodes.SimpleNodeManager
+import it.unibo.alchemist.model.scafi.ScafiIncarnationForAlchemist._
 import it.unibo.scafi.ScafiProgram
-import CohesionCollisionActions._
 import it.unibo.scafi.space.{Point2D, Point3D}
 import it.unibo.scarlib.core.model.State
-import it.unibo.alchemist.model.scafi.ScafiIncarnationForAlchemist._
 
 class CohesionCollisionScafiAgent extends ScafiProgram with FieldUtils {
 

@@ -22,7 +22,7 @@ environment:
     - time-distribution:
         type: DiracComb
         parameters: [ 0.1,  1.0 ]
-      type: experiments.CohesionCollisionCollectiveAction
+      type: experiments.cohesioncollision.CohesionCollisionCollectiveAction
       parameters: [ ]
 _reactions:
   - program: &program
@@ -32,25 +32,11 @@ _reactions:
         type: Event
         actions:
           - type: RunScafiProgram
-            parameters: [ experiments.CohesionCollisionScafiAgent, 1.1 ]
+            parameters: [ experiments.cohesioncollision.CohesionCollisionScafiAgent, 1.1 ]
       - program: send
 
 deployments:
   type: Grid
-  #parameters: [ -1, -1, 1, 1, 1, 1, 0, 0 ]
-  parameters: [-5, -5, 5, 5, 2, 1, 1, 1] # more agents... (50)
+  parameters: [-5, -5, 5, 5, 2, 1, 1, 1]
   programs:
     - *program
-    #- *move
-
-export:
-  - type: CSVExporter
-    parameters:
-      fileNameRoot: "simulation"
-      exportPath: "data/data-50"
-      interval: 1
-    data:
-      - time
-      - molecule: distances
-        value-filter: onlyfinite
-        aggregators: [ min, max, mean ]

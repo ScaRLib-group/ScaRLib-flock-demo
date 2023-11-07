@@ -1,4 +1,4 @@
-package experiments
+package experiments.cohesioncollision
 
 import it.unibo.scarlib.core.model.Action
 

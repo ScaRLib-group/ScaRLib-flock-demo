@@ -1,7 +1,7 @@
-package experiments.evaluation
+package experiments.cohesioncollision.evaluation
 
 import ch.qos.logback.classic.Level
-import experiments.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory, StateInfo}
+import experiments.cohesioncollision.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory, StateInfo}
 import it.unibo.alchemist.{AlchemistEnvironment, NoOutput, ShowEach}
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
 import it.unibo.scarlib.core.system.{CTDEAgent, CTDESystem}
@@ -9,7 +9,7 @@ import it.unibo.scarlib.core.model._
 import org.slf4j.LoggerFactory
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import experiments.CohesionCollisionState.encoding
+import experiments.cohesioncollision.CohesionCollisionState.encoding
 import it.unibo.scarlib.core.neuralnetwork.NeuralNetworkSnapshot
 
 object CohesionCollisionEval extends App {

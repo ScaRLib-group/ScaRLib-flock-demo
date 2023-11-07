@@ -1,8 +1,8 @@
-package experiments
+package experiments.cohesioncollision
 
+import it.unibo.scafi.space.Point3D
 import it.unibo.scarlib.core.model.{Action, RewardFunction, State}
 import it.unibo.scarlib.core.util.AgentGlobalStore
-import it.unibo.scafi.space.Point3D
 
 class CohesionCollisionRF extends RewardFunction {
 

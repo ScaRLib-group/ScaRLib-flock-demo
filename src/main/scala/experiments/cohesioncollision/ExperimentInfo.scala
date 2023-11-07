@@ -1,4 +1,4 @@
-package experiments
+package experiments.cohesioncollision
 
 object ExperimentInfo {
   val episodes = 500

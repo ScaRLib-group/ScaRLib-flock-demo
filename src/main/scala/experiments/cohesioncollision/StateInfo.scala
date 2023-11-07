@@ -1,4 +1,4 @@
-package experiments
+package experiments.cohesioncollision
 
 object StateInfo {
   val neighborhood: Int = 5
