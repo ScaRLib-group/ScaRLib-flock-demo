@@ -24,7 +24,7 @@ sourceSets {
     }
 }
 
-val scarlibVersion = "2.0.0"
+val scarlibVersion = "2.0.1"
 
 dependencies {
     implementation("org.scala-lang:scala-library:2.13.10")
