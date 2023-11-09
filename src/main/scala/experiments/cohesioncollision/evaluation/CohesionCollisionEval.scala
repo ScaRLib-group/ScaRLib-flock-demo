@@ -1,7 +1,7 @@
 package experiments.cohesioncollision.evaluation
 
 import ch.qos.logback.classic.Level
-import experiments.cohesioncollision.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory, StateInfo}
+import experiments.cohesioncollision.{CohesionCollisionActions, CohesionCollisionRF, CohesionCollisionState, ExperimentInfo, NNFactory, StateInfo}
 import it.unibo.alchemist.{AlchemistEnvironment, NoOutput, ShowEach}
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
 import it.unibo.scarlib.core.system.{CTDEAgent, CTDESystem}

@@ -4,7 +4,7 @@ import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
 import it.unibo.alchemist.{AlchemistEnvironment, NoOutput, ShowEach}
 import org.slf4j.LoggerFactory
 import ch.qos.logback.classic.Level
-import experiments.followtheleader.{ExperimentInfo, FollowTheLeaderActions, FollowTheLeaderNNFactory, FollowTheLeaderRF}
+import experiments.followtheleader.{ExperimentInfo, FollowTheLeaderActions, FollowTheLeaderNNFactory, FollowTheLeaderRF, FollowTheLeaderState}
 import it.unibo.scarlib.core.system.{CTDEAgent, CTDESystem}
 import it.unibo.scarlib.core.model.{Action, LearningConfiguration, ReplayBuffer, State}
 

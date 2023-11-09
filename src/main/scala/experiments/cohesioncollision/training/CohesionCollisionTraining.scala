@@ -1,10 +1,10 @@
 package experiments.cohesioncollision.training
 
 import ch.qos.logback.classic.Level
-import experiments.cohesioncollision.{CohesionCollisionActions, CohesionCollisionRF, ExperimentInfo, NNFactory}
+import experiments.cohesioncollision.{CohesionCollisionActions, CohesionCollisionRF, CohesionCollisionState, ExperimentInfo, NNFactory}
 import it.unibo.alchemist.{AlchemistEnvironment, NoOutput, ShowEach}
 import it.unibo.alchemist.loader.m2m.{JVMConstructor, SimulationModel}
-import it.unibo.scarlib.core.system.{CTDESystem, CTDEAgent}
+import it.unibo.scarlib.core.system.{CTDEAgent, CTDESystem}
 import it.unibo.scarlib.core.model.{Action, LearningConfiguration, ReplayBuffer, State}
 import org.slf4j.LoggerFactory
 
