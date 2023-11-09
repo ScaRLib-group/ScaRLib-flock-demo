@@ -1,5 +1,6 @@
 package experiments.followtheleader
 
+import it.unibo.scafi.space.Point3D
 import it.unibo.scarlib.core.model.{Action, RewardFunction, State}
 import it.unibo.scarlib.core.util.AgentGlobalStore
 
