@@ -33,7 +33,7 @@ object CohesionCollisionEval extends App {
         val env = e.asInstanceOf[AlchemistEnvironment]
         env.setOutputStrategy(show)
         env.setRandomSeed(Some(42))
-        env.setEnvironmentDefinition(s"./src/main/scala/experiments//cohesioncollision/evaluation/CohesionAndCollisionEval-${count}.yaml")
+        env.setEnvironmentDefinition(s"./src/main/scala/experiments/cohesioncollision/evaluation/CohesionAndCollisionEval-${count}.yaml")
       }
 
       val where = s"./networks/network"
