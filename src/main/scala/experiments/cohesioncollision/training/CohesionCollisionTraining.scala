@@ -27,7 +27,7 @@ object CohesionCollisionTraining extends App {
     val env = e.asInstanceOf[AlchemistEnvironment]
     env.setOutputStrategy(show)
     env.setRandomSeed(Some(42))
-    env.setEnvironmentDefinition("./src/main/scala/experiments/training/CohesionCollisionSimulation.yaml")
+    env.setEnvironmentDefinition("./src/main/scala/experiments/cohesioncollision/training/CohesionCollisionSimulation.yaml")
   }
 
   val system = CTDELearningSystem {
