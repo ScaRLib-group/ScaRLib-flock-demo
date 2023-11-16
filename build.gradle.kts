@@ -29,6 +29,7 @@ val scarlibVersion = "3.1.0"
 dependencies {
     implementation("org.scala-lang:scala-library:2.13.10")
     implementation("io.github.davidedomini:scarlib-core:$scarlibVersion")
+    implementation("io.github.davidedomini:dsl-core:$scarlibVersion")
     implementation("io.github.davidedomini:alchemist-scafi:$scarlibVersion")
     implementation("it.unibo.alchemist:alchemist:25.14.6")
     implementation("it.unibo.alchemist:alchemist-incarnation-scafi:25.14.6")
