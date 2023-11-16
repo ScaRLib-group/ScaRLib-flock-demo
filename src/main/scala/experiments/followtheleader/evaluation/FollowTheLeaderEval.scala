@@ -13,7 +13,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import experiments.followtheleader.FollowTheLeaderState.encoding
 
 object FollowTheLeaderEval extends App {
-  val argsMap = args.zipWithIndex.map { case (arg, i) => (i, arg) }.toMap
+  /*val argsMap = args.zipWithIndex.map { case (arg, i) => (i, arg) }.toMap
   val show = argsMap.get(0) match {
     case None => NoOutput
     case Some(steps) => new ShowEach(steps.toInt)
@@ -51,5 +51,5 @@ object FollowTheLeaderEval extends App {
   runEvaluationWith(50)
   runEvaluationWith(100)
   runEvaluationWith(200)
-  System.exit(0)
+  System.exit(0)*/
 }

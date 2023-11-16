@@ -13,7 +13,7 @@ import experiments.followtheleader.FollowTheLeaderState.encoding
 
 
 object FollowTheLeaderTraining extends App {
-  val argsMap = args.zipWithIndex.map { case (arg, i) => (i, arg) }.toMap
+  /*val argsMap = args.zipWithIndex.map { case (arg, i) => (i, arg) }.toMap
   val show = argsMap.get(0) match {
     case None => NoOutput
     case Some(steps) => new ShowEach(steps.toInt)
@@ -45,5 +45,5 @@ object FollowTheLeaderTraining extends App {
   private val learningConfiguration = new LearningConfiguration(dqnFactory = new FollowTheLeaderNNFactory(), snapshotPath = "networks/network")
 
   new CTDESystem(agents, env, dataset, actionSpace, learningConfiguration).learn(ExperimentInfo.episodes, ExperimentInfo.episodeLength)
-  System.exit(0)
+  System.exit(0)*/
 }
